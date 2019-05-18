@@ -433,7 +433,7 @@ class RedisBackend(BaseKeyValueStoreBackend, AsyncBackendMixin):
     @property
     def ConnectionPool(self):
         if self._ConnectionPool is None:
-            self._ConnectionPool = self.redis.ConnectionPool
+            self._ConnectionPool = self.redis.BlockingConnectionPool
         return self._ConnectionPool
 
     @cached_property
